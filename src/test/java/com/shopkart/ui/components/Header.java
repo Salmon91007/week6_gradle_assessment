@@ -1,8 +1,6 @@
 package com.shopkart.ui.components;
 
-import com.shopkart.pages.*;
 import com.shopkart.ui.pages.*;
-import com.ust.sdet.pages.*;
 import com.shopkart.support.LoggerUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
