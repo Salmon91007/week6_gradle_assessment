@@ -49,11 +49,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Make Gradle Wrapper Executable
-        working-directory: Gradle_Project
         run: chmod +x gradlew
 
       - name: Run Order Test
-        working-directory: Gradle_Project
+
         run: ./gradlew integrationTest --no-configuration-cache
         env:
           JAVA_TOOL_OPTIONS: >
@@ -61,12 +60,13 @@ jobs:
             -Ddb.user=postgres
             -Ddb.password=postgres
 
+
       - name: Copy Allure Environment
         if: always()
         run: |
-          mkdir -p Gradle_Project/build/allure-results
-          cp Gradle_Project/src/test/resources/environment.properties \
-             Gradle_Project/build/allure-results/environment.properties
+          mkdir -p build/allure-results
+          cp src/test/resources/environment.properties \
+             build/allure-results/environment.properties
 
       - name: Checkout gh-pages branch
         if: always()
